@@ -25,9 +25,10 @@ public class SpellCheckerTest {
 
                         if (spelling1.isPresent()) {
                             if (spelling1.get().equalsIgnoreCase(word)) {
-                                System.out.println("we found the word: " + word);
+                                System.out.println("word exist in the dictionary: " + word);
                             } else {
-                                System.out.println("correct spelling is : " + spelling1.get());
+                                System.out.println("Do you mean any of the following words?");
+                                System.out.println(filteredList.stream().collect(Collectors.joining(", ")));
                             }
                         }
                     }
@@ -40,8 +41,12 @@ public class SpellCheckerTest {
     }
 
     @Test
-    public void testCheckSpelling() {
+    public void testCorrectCheckSpellingAndSuggestOptions() {
         readDictionary("tes");
+    }
+
+    @Test
+    public void testCheckIfWordExistsInDictionary(){
         readDictionary("test");
     }
 }
