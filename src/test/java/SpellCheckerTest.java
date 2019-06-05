@@ -24,10 +24,10 @@ public class SpellCheckerTest {
                         Optional<String> spelling1 = filteredList.stream().filter(v -> v.startsWith(word)).findFirst();
 
                         if (spelling1.isPresent()) {
-                            if (!spelling1.get().equalsIgnoreCase(word)) {
-                                System.out.println("correct spelling is: " + word);
+                            if (spelling1.get().equalsIgnoreCase(word)) {
+                                System.out.println("we found the word: " + word);
                             } else {
-                                System.out.println("we found the word : " + spelling1.get());
+                                System.out.println("correct spelling is : " + spelling1.get());
                             }
                         }
                     }
